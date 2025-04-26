@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/ss.css">
+
+  <title>Document</title>
+</head>
+<body>
+  <h1>
+    <div class="flex-container">
+      <div class="parent">
+        <div></div>
+        <div class="form"><form action="/submit" method="POST">
+          <label for="zipCode">How much sunscreen do you need today?</label><br>
+          <input type="text" id="zip" name="zipCode" placeholder="Enter In Zip Code" value=""><br><br>
+          <input type="submit" value="Submit">
+          </form></div>
+          <div class="result">
+            <% let spfRecommendation = ""; %>
+            <% if (locals.zip) { %>
+              The UV right now is <%= uv %>
+              <br>
+              The Max UV for today is <%= uvMax %>
+              <br>
+              <% if (uv <= 2) { %>
+                <% spfRecommendation = "15+"; %>
+                Try SPF <%= spfRecommendation %>
+              <% } else if (uv <= 5) { %>
+                <% spfRecommendation = "30+"; %>
+                Try SPF <%= spfRecommendation %>
+              <% } else if (uv <= 7) { %>
+                <% spfRecommendation = "50+"; %>
+                Try SPF <%= spfRecommendation %>
+              <% } else if (uv <= 10) { %>
+                <% spfRecommendation = "50+"; %>
+                Try SPF <%= spfRecommendation %>, water resistant
+              <% } else { %>
+                <% spfRecommendation = "50+"; %>
+                Try SPF <%= spfRecommendation %>, reapply every two hours
+              <% } %>
+            <% } else { %>
+              Type in your zip code
+            <% } %>
+          </div>
+        </div>
+          <div class="image">
+            <div class="top"></div>
+            <div class="bottle"></div>
+            <div class="littleSun"></div>
+            <div class="text"><h1>SPF <br><span id="spfValue"></span></h1></div>
+            <div class="cap"></div>
+          </div>
+      </div>
+    </div>
+
+    <div class="beachCSS">
+      <div class="waves"></div>
+      <div class="sand"></div>
+      <div class="tree">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="sun"></div>
+  </h1>
+  <script>
+    const spfRecommendation = "<%= spfRecommendation || '' %>";
+    const spfValueElement = document.getElementById('spfValue');
+    if (spfValueElement && spfRecommendation) {
+      // Extract the numeric part of the SPF recommendation
+      const numericSpf = spfRecommendation.replace('+', '');
+      spfValueElement.textContent = numericSpf;
+    }
+
+    const result = document.querySelector(".result"); // Use querySelector for a single element
+  const zip = "<%= locals.zip || '' %>"; // Pass the server-side variable to the client-side
+
+  if (result) {
+    if (zip) {
+      result.style.backgroundColor = "#bfbfbf78";
+      result.style.borderRadius = "20px"
+    } else {
+      result.style.backgroundColor = "transparent"; // Use "transparent" instead of "none"
+    }
+  }
+  </script>
+</body>
+</html>

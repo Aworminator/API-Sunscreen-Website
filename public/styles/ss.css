@@ -1,0 +1,71 @@
+.image {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 8px;
+  width: 200px;
+  transform: scale(0.5); /* Adjust scale to make it visible */
+  position: relative;
+  top: 100px;
+  right: 150px;
+}
+
+.top {
+  height: 30px;
+  width: 270px;
+  background-color: darkorange;
+  grid-row-start: 1;
+  margin-bottom: -10px;
+}
+.bottle {
+  /* box-sizing: border-box; */
+  width: 200px;
+  height: 0;
+  border-top: 500px solid orange;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom-right-radius: 30%;
+  border-bottom-left-radius: 30%;
+  grid-row-start: 2;
+}
+
+.littleSun {
+  display: flex;
+  height: 150px;
+  width: 150px;
+  background-color: yellow;
+  border-radius: 100%;
+  grid-row-start: 3;
+  grid-column-start: 1;
+  justify-content: center;
+  margin: auto;
+  margin-top: -425px;
+}
+
+.cap {
+  height: 70px;
+  width: 175px;
+  background-color: rgb(241, 241, 195);
+  grid-row-start: 4;
+  margin: auto;
+  margin-top: -20px;
+  border-radius: 8%;
+}
+
+.text {
+  display: flex;
+  margin: auto;
+  grid-row-start: 3;
+  grid-column-start: 1;
+  margin-top: -300px;
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(180, 99, 0);
+}
+
+h1 {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
