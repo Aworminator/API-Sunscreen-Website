@@ -197,4 +197,9 @@ body {
     transform: scale(0.6);
     margin-left: 24%;
   }
+
+  .form,
+  .result {
+    font-size: 0.6em;
+  }
 }
