@@ -2,12 +2,11 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(5, auto);
-  gap: 8px;
+  gap: 0;
   width: 200px;
   transform: scale(0.5); /* Adjust scale to make it visible */
-  position: relative;
-  top: 100px;
-  right: 150px;
+  grid-column: 3;
+  margin-left: 30%;
 }
 
 .top {
@@ -68,4 +67,10 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .image {
+    margin-top: 40%;
+  }
 }
